@@ -133,7 +133,7 @@ Since this hasn't been released yet, it can be downloaded through [Gitlab](https
 
 ### 3.1 Logging
 
-A Logger exists specifically for all actions related to Task Queue, named `Queue`.
+A Log Node exists specifically for all actions related to Task Queue, named `TaskQueue`.
 
 ## 4 Other
 
