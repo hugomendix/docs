@@ -99,7 +99,12 @@ In the [App Settings](/refguide/app-settings/), your option for **Round numbers*
 * For the **Half away from zero** option (also called "commercial rounding"), +2.5 becomes +3 and -1.5 becomes -2
 * The **Half to the nearest even number** option (also called "bankers' rounding") is the default rounding mode used in [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") computing functions and operators; for example, +23.5 becomes +24, as does +24.5; and -22.5 becomes -22, as does -21.5
 
-The second optional parameter determines the precision of the rounding. The default value is 0. The result will be of the most precise type possible. For a precision of 0, the result will be of integer/long type, and for all other precision values, the result will be of the decimal type.
+The second optional parameter determines the precision of the rounding. The result when specifying the second parameter will always be of type Decimal; if it is omitted the result will be Integer/Long.
+
+| Value                                             | Type         |
+| ------------------------------------------------- | ------------ |
+| The input value rounded (no precision specified). | Integer/Long |
+| The input value rounded to the desired precision. | Decimal      |
 
 ### 4.3 Example
 
@@ -109,7 +114,7 @@ If you use the following input:
 round(3.5)
 ```
 
-The output is of type Integer/Long:
+The output is an Integer/Long:
 
 ```java {linenos=false}
 4
@@ -118,13 +123,13 @@ The output is of type Integer/Long:
 Another example of an input is:
 
 ```java {linenos=false}
-round(88.725,2)
+round(42, 2)
 ```
 
-The output is a decimal:
+The output is a Decimal with the specified precision:
 
 ```java {linenos=false}
-88.72
+42.00
 ```
 
 ## 5 random
@@ -169,9 +174,9 @@ The input parameters are described in the table below:
 
 The output is described in the table below:
 
-| Value                                                | Type    |
-| ---------------------------------------------------- | ------- |
-| The input value rounded down to the nearest integer. | Integer |
+| Value                                                | Type         |
+| ---------------------------------------------------- | ------------ |
+| The input value rounded down to the nearest integer. | Integer/Long |
 
 ### 6.3 Example
 
@@ -181,7 +186,7 @@ If you use the following input:
 floor(3.9)
 ```
 
-The output is:
+The output is an Integer/Long:
 
 ```java {linenos=false}
 3
@@ -193,7 +198,7 @@ Another example of an input is:
 floor(-1.2)
 ```
 
-The output is:
+The output is an Integer/Long:
 
 ```java {linenos=false}
 -2
@@ -215,9 +220,9 @@ The input parameters are described in the table below:
 
 The output is described in the table below:
 
-| Value                                              | Type    |
-| -------------------------------------------------- | ------- |
-| The input value rounded up to the nearest integer. | Integer |
+| Value                                              | Type         |
+| -------------------------------------------------- | ------------ |
+| The input value rounded up to the nearest integer. | Integer/Long |
 
 ### 7.3 Example
 
@@ -227,7 +232,7 @@ If you use the following input:
 ceil(3.2)
 ```
 
-The output is:
+The output is an Integer/Long:
 
 ```java {linenos=false}
 4
@@ -239,7 +244,7 @@ Another example of an input is:
 ceil(-1.9)
 ```
 
-The output is:
+The output is an Integer/Long:
 
 ```java {linenos=false}
 -1
